@@ -2,7 +2,7 @@ import json
 
 sept_infile = open('US_Fires_9_1.json','r')
 
-sept_outfile = open('bsept_fire_data.json','r')
+sept_outfile = open('bsept_fire_data.json','w')
 
 sept_data = json.load(sept_infile)
 
@@ -19,7 +19,7 @@ for x in sept_data:
     if bright > 450:
         sbrightness.append(bright)
 
-from plotly.graphs_objs import Scattergeo, layout
+from plotly.graph_objs import Scattergeo, Layout
 from plotly import offline
 
 
@@ -36,7 +36,7 @@ data = [{
     }
 }]
 
-my_layout = layout(title= 'Fires')
+my_layout = Layout(title= 'Fires')
 
 fig = {'data' : data, 'layout' : my_layout}
 
